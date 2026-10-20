@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mohamed Aghattas – Backend Java Developer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Newsreader:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F3F6FA;--surface:#fff;--ink:#0F1B30;--muted:#51607A;--navy:#14305F;--onnavy:#fff;--line:#D5DCE8;--accent:#E3A71F;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:light}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0C1424;--surface:#131E34;--ink:#E8EDF6;--muted:#9AA8C2;--navy:#2A4C8F;--line:#26344F;--accent:#F0B93A;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0C1424;--surface:#131E34;--ink:#E8EDF6;--muted:#9AA8C2;--navy:#2A4C8F;--line:#26344F;--accent:#F0B93A;color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:18px/1.6 Newsreader,Georgia,serif}
+h1,h2,h3,.sans{font-family:"Bricolage Grotesque","Helvetica Neue",Arial,sans-serif}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 24px}
+header.top{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:20px 0;flex-wrap:wrap}
+header.top .brand{font-weight:800;text-decoration:none;font-size:1.05rem}
+nav{display:flex;gap:20px;align-items:center;flex-wrap:wrap;font-size:.95rem}
+nav a{text-decoration:none;color:var(--muted)}nav a:hover{color:var(--ink)}
+#lang{font:700 .85rem "Bricolage Grotesque",sans-serif;background:none;color:var(--ink);border:1.5px solid var(--ink);border-radius:999px;padding:5px 14px;cursor:pointer}
+#lang:hover{background:var(--ink);color:var(--bg)}
+.hero{display:grid;grid-template-columns:1.5fr 1fr;gap:56px;align-items:center;padding:56px 0 80px}
+.hero h1{font-size:clamp(2.3rem,5.4vw,4rem);line-height:1.05;margin:0 0 22px;font-weight:800;letter-spacing:-.02em}
+.hero p{max-width:34em;color:var(--muted);margin:0 0 28px}
+.hero .name{font:700 1.1rem "Bricolage Grotesque",sans-serif;margin-bottom:14px;color:var(--ink)}
+.btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn{font:700 1rem "Bricolage Grotesque",sans-serif;text-decoration:none;padding:12px 22px;border-radius:8px;border:2px solid var(--navy)}
+.btn.p{background:var(--navy);color:var(--onnavy)}.btn.s{color:var(--ink)}
+.btn:hover{border-color:var(--accent)}
+.photo{position:relative;justify-self:center;width:min(100%,300px)}
+.photo::before{content:"";position:absolute;inset:18px -18px -18px 18px;background:var(--navy);border-radius:14px}
+.photo img{position:relative;display:block;width:100%;height:auto;border-radius:14px;border:4px solid var(--surface)}
+section{padding:64px 0;border-top:1px solid var(--line)}
+h2{font-size:clamp(1.7rem,3.4vw,2.4rem);margin:0 0 8px;letter-spacing:-.01em;line-height:1.15}
+.lead{color:var(--muted);margin:0 0 36px;max-width:38em}
+.stack{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start}
+.layers{display:flex;flex-direction:column;gap:6px;margin:0;padding:0;list-style:none}
+.layers button{width:100%;display:flex;justify-content:space-between;gap:12px;text-align:left;font:700 1rem "Bricolage Grotesque",sans-serif;padding:14px 18px;background:var(--surface);color:var(--ink);border:1px solid var(--line);border-left:6px solid var(--line);border-radius:6px;cursor:pointer;transition:background .15s,border-color .15s}
+.layers button span{font-weight:500;color:var(--muted)}
+.layers button:hover{border-left-color:var(--accent)}
+.layers button[aria-pressed="true"]{background:var(--navy);color:var(--onnavy);border-left-color:var(--accent)}
+.layers button[aria-pressed="true"] span{color:var(--onnavy);opacity:.85}
+.detail{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:26px;position:sticky;top:16px}
+.detail h3{margin:0 0 8px;font-size:1.3rem}.detail p{margin:0 0 14px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:0;padding:0;list-style:none}
+.chips li{font:600 .85rem "Bricolage Grotesque",sans-serif;border:1.5px solid var(--navy);border-radius:999px;padding:3px 12px}
+.also{margin-top:28px;color:var(--muted)}
+.job{display:grid;grid-template-columns:190px 1fr;gap:24px;padding:0 0 36px 24px;border-left:3px solid var(--navy);position:relative}
+.job::before{content:"";position:absolute;left:-9px;top:6px;width:15px;height:15px;border-radius:50%;background:var(--accent);border:3px solid var(--bg)}
+.job:last-child{padding-bottom:0}
+.when{font:600 .95rem "Bricolage Grotesque",sans-serif;color:var(--muted);padding-top:3px}
+.job h3{margin:0;font-size:1.25rem}.job .org{margin:0 0 10px;color:var(--muted)}
+.job ul{margin:0 0 14px;padding-left:20px}.job li{margin-bottom:4px}
+.proj{display:grid;grid-template-columns:1fr 1.4fr;gap:12px 40px;padding:26px 0;border-bottom:1px solid var(--line)}
+.proj:first-of-type{padding-top:0}
+.proj h3{margin:0;font-size:1.3rem}.proj p{margin:0 0 12px}
+.edu{display:grid;grid-template-columns:1fr auto;gap:2px 24px;padding:14px 0;border-bottom:1px solid var(--line)}
+.edu h3{margin:0;font-size:1.1rem}.edu p{margin:0;color:var(--muted)}.edu .yr{font:600 .95rem "Bricolage Grotesque",sans-serif;color:var(--muted);grid-row:1/3;grid-column:2;align-self:center}
+.contact a.big{display:block;font:800 clamp(1.4rem,4.2vw,2.6rem) "Bricolage Grotesque",sans-serif;letter-spacing:-.01em;margin:0 0 24px;word-break:break-all;text-decoration-thickness:3px;text-decoration-color:var(--accent);text-underline-offset:6px}
+.links{display:flex;gap:28px;flex-wrap:wrap;margin:0;padding:0;list-style:none;font-weight:600}
+footer{padding:28px 0 40px;color:var(--muted);font-size:.9rem;border-top:1px solid var(--line)}
+@media (max-width:760px){body{font-size:17px}.hero,.stack,.proj{grid-template-columns:1fr}.hero{gap:40px;padding-top:24px}.photo{order:-1;width:200px;justify-self:start}.job{grid-template-columns:1fr;gap:2px}.detail{position:static}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="top">
+<a class="brand" href="#top">M. Aghattas</a>
+<nav aria-label="Main">
+<a href="#stack" data-i="nStack">Stack</a><a href="#experience" data-i="nExp">Experience</a><a href="#projects" data-i="nProj">Projects</a><a href="#education" data-i="nEdu">Education</a><a href="#contact" data-i="nCon">Contact</a>
+<button id="lang" type="button" aria-label="Switch language">FR</button>
+</nav>
+</header>
+
+<main id="top">
+<div class="hero">
+<div>
+<div class="name">Mohamed Aghattas</div>
+<h1 data-i="h1">I build Java backends, from the API down to the schema.</h1>
+<p data-i="intro">Computer engineering student in Tétouan, Morocco, in my final year. I work with Spring Boot, Hibernate and MySQL, and I have completed internships at NTT DATA and Infinitive Byte.</p>
+<div class="btns"><a class="btn p" href="#contact" data-i="bHire">Get in touch</a><a class="btn s" href="#experience" data-i="bWork">See my experience</a></div>
+</div>
+<div class="photo"><img src="data:image/jpeg;base64,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" alt="Portrait of Mohamed Aghattas" width="360" height="440"></div>
+</div>
+
+<section id="stack">
+<h2 data-i="stH">The layers I work in</h2>
+<p class="lead" data-i="stP">Pick a layer to see what I use there and where I have used it.</p>
+<div class="stack">
+<ul class="layers" id="layers"></ul>
+<div class="detail" aria-live="polite"><h3 id="dT"></h3><p id="dP"></p><ul class="chips" id="dC"></ul></div>
+</div>
+<p class="also"><span data-i="also">Also worked with:</span> Laravel (PHP), Flask (Python), C# / .NET.</p>
+</section>
+
+<section id="experience">
+<h2 data-i="exH">Experience</h2>
+<p class="lead" data-i="exP">Two software development internships in Tétouan.</p>
+<div class="job">
+<div class="when" data-i="d1">May – September 2026</div>
+<div><h3 data-i="r1">Software Development Intern</h3><p class="org">NTT DATA – Tétouan, Morocco</p>
+<ul><li data-i="e1a">Designed and developed Sandic, a full-stack application with a Spring Boot backend and an Angular frontend.</li><li data-i="e1b">Built the persistence layer with Spring Data JPA and MySQL, and used Lombok to cut boilerplate code.</li><li data-i="e1c">Managed the build and dependencies with Maven.</li></ul>
+<ul class="chips"><li>Spring Boot</li><li>Angular</li><li>Spring Data JPA</li><li>MySQL</li><li>Maven</li><li>Lombok</li></ul></div>
+</div>
+<div class="job">
+<div class="when" data-i="d2">August – October 2025</div>
+<div><h3 data-i="r2">Software Development Intern</h3><p class="org">Infinitive Byte – Tétouan, Morocco</p>
+<ul><li data-i="e2a">Designed and developed a medical record and appointment management system with JavaEE and MySQL.</li><li data-i="e2b">Optimized relational database schemas to improve data integrity and query performance.</li><li data-i="e2c">Contributed to testing, debugging and deployment to keep releases stable.</li></ul>
+<ul class="chips"><li>JavaEE</li><li>MySQL</li></ul></div>
+</div>
+</section>
+
+<section id="projects">
+<h2 data-i="pjH">Projects</h2>
+<p class="lead" data-i="pjP">Personal projects where I practised clean code and layered architecture.</p>
+<div class="proj"><h3 data-i="p1t">E-commerce platform</h3><div><p data-i="p1d">RESTful APIs for the product catalog, order processing and user management, with a layered architecture built for long-term maintainability.</p><ul class="chips"><li>Spring Boot</li><li>Spring Data JPA</li><li>Hibernate</li><li>MySQL</li></ul></div></div>
+<div class="proj"><h3 data-i="p2t">Employee management system</h3><div><p data-i="p2d">Full CRUD with Hibernate and JavaEE, including role-based access control and email verification, with separation of concerns throughout.</p><ul class="chips"><li>JavaEE</li><li>Hibernate</li><li>MySQL</li></ul></div></div>
+<div class="proj"><h3 data-i="p3t">Python web application</h3><div><p data-i="p3d">Full-stack Flask application with a REST API, user authentication and data models, following the MVC pattern.</p><ul class="chips"><li>Python</li><li>Flask</li><li>SQLite</li><li>PostgreSQL</li></ul></div></div>
+</section>
+
+<section id="education">
+<h2 data-i="edH">Education</h2>
+<div class="edu"><h3 data-i="ed1">Computer Engineering Degree, 3rd year</h3><p>Institut Supérieur de Génie Informatique, Morocco</p><span class="yr">2023 – 2026</span></div>
+<div class="edu"><h3 data-i="ed2">Specialized Technician Diploma, Software Development</h3><p>Institut Spécialisé Métiers de l’Offshoring, Tétouan</p><span class="yr">2018 – 2020</span></div>
+<div class="edu"><h3 data-i="ed3">Baccalaureate, Life and Earth Sciences</h3><p>Lycée Kassim Zhiry, Tétouan</p><span class="yr">2016 – 2017</span></div>
+<p class="also"><span data-i="lang">Languages:</span> <span data-i="langs">Arabic, English, French</span></p>
+</section>
+
+<section id="contact" class="contact">
+<h2 data-i="coH">Let’s talk about your backend.</h2>
+<p class="lead" data-i="coP">I am looking for opportunities in Backend Java development. Write to me and I will reply quickly.</p>
+<a class="big" href="mailto:aghattas.mohamed1@gmail.com">aghattas.mohamed1@gmail.com</a>
+<ul class="links"><li><a href="https://linkedin.com/in/mohamed-aghattas">LinkedIn</a></li><li><a href="https://github.com/mohamed-aghattas">GitHub</a></li><li><a href="tel:+212709687643">0709687643</a></li><li>Tétouan, Morocco</li></ul>
+</section>
+</main>
+<footer><div>© 2026 Mohamed Aghattas</div></footer>
+</div>
+
+<script>
+const FR={nStack:"Stack",nExp:"Expérience",nProj:"Projets",nEdu:"Formation",nCon:"Contact",
+h1:"Je construis des backends Java, de l’API jusqu’au schéma de base de données.",
+intro:"Étudiant en dernière année de génie informatique à Tétouan, au Maroc. Je travaille avec Spring Boot, Hibernate et MySQL, et j’ai effectué des stages chez NTT DATA et Infinitive Byte.",
+bHire:"Me contacter",bWork:"Voir mon expérience",stH:"Les couches dans lesquelles je travaille",stP:"Choisissez une couche pour voir ce que j’y utilise et où je l’ai utilisé.",also:"J’ai aussi travaillé avec :",
+exH:"Expérience",exP:"Deux stages en développement logiciel à Tétouan.",
+d1:"Mai – Septembre 2026",d2:"Août – Octobre 2025",r1:"Stagiaire en développement logiciel",r2:"Stagiaire en développement logiciel",
+e1a:"Conception et développement de Sandic, une application full-stack avec un backend Spring Boot et un frontend Angular.",
+e1b:"Mise en place de la couche de persistance avec Spring Data JPA et MySQL, et utilisation de Lombok pour réduire le code répétitif.",
+e1c:"Gestion du build et des dépendances avec Maven.",
+e2a:"Conception et développement d’un système de gestion des dossiers médicaux et des rendez-vous avec JavaEE et MySQL.",
+e2b:"Optimisation des schémas de base de données relationnelle pour améliorer l’intégrité des données et les performances des requêtes.",
+e2c:"Participation aux tests, au débogage et au déploiement pour garantir des livraisons stables.",
+pjH:"Projets",pjP:"Des projets personnels pour pratiquer le code propre et l’architecture en couches.",
+p1t:"Plateforme e-commerce",p1d:"APIs RESTful pour le catalogue produits, le traitement des commandes et la gestion des utilisateurs, avec une architecture en couches pensée pour la maintenabilité.",
+p2t:"Système de gestion des employés",p2d:"CRUD complet avec Hibernate et JavaEE, incluant contrôle d’accès par rôles et vérification par e-mail, avec une séparation des responsabilités dans tout le code.",
+p3t:"Application web Python",p3d:"Application full-stack Flask avec API REST, authentification et modèles de données, selon le modèle MVC.",
+edH:"Formation",ed1:"Diplôme d’ingénieur en Génie Informatique, 3e année",ed2:"Diplôme de Technicien Spécialisé, Développement Logiciel",ed3:"Baccalauréat, Sciences de la Vie et de la Terre",lang:"Langues :",langs:"Arabe, Anglais, Français",
+coH:"Parlons de votre backend.",coP:"Je recherche des opportunités en développement Backend Java. Écrivez-moi, je réponds rapidement."};
+const L=[
+{n:["Client","Client"],t:["Angular"],en:"The interface of Sandic, built with Angular and connected to a Spring Boot API.",fr:"L’interface de Sandic, développée avec Angular et connectée à une API Spring Boot."},
+{n:["API","API"],t:["Spring Boot","REST"],en:"RESTful endpoints for the e-commerce platform: catalog, orders and users.",fr:"Des endpoints RESTful pour la plateforme e-commerce : catalogue, commandes et utilisateurs."},
+{n:["Logic","Logique métier"],t:["Java SE/EE","Lombok","Clean Code"],en:"Layered architecture and separation of concerns, with less boilerplate thanks to Lombok.",fr:"Architecture en couches et séparation des responsabilités, avec moins de code répétitif grâce à Lombok."},
+{n:["Persistence","Persistance"],t:["Spring Data JPA","Hibernate"],en:"Entities and repositories, plus role-based access control in the employee management system.",fr:"Entités et repositories, plus le contrôle d’accès par rôles du système de gestion des employés."},
+{n:["Database","Base de données"],t:["MySQL","PostgreSQL","SQL Server"],en:"Schema design for data integrity and query performance, used at Infinitive Byte.",fr:"Conception de schémas pour l’intégrité des données et les performances, utilisée chez Infinitive Byte."},
+{n:["Around the code","Autour du code"],t:["JUnit","Mockito","TDD","Docker","Maven","Git","GitHub","Postman"],en:"Tests written first with JUnit and Mockito, builds with Maven, and delivery with Docker and Git.",fr:"Tests écrits en premier avec JUnit et Mockito, builds avec Maven, livraison avec Docker et Git."}];
+let lang="en",cur=0;
+const $=id=>document.getElementById(id);
+try{lang=localStorage.getItem("lang")||((navigator.language||"").slice(0,2)==="fr"?"fr":"en")}catch(e){}
+function render(){
+ const i=lang==="fr"?1:0;
+ $("layers").innerHTML=L.map((l,k)=>`<li><button type="button" aria-pressed="${k===cur}" data-k="${k}">${l.n[i]}<span>${l.t[0]}</span></button></li>`).join("");
+ const l=L[cur];$("dT").textContent=l.n[i];$("dP").textContent=l[lang];
+ $("dC").innerHTML=l.t.map(x=>`<li>${x}</li>`).join("");
+ document.documentElement.lang=lang;$("lang").textContent=lang==="fr"?"EN":"FR";
+ document.querySelectorAll("[data-i]").forEach(el=>{
+  if(!el.dataset.en)el.dataset.en=el.textContent;
+  el.textContent=lang==="fr"&&FR[el.dataset.i]?FR[el.dataset.i]:el.dataset.en;});
+}
+$("layers").addEventListener("click",e=>{const b=e.target.closest("button");if(b){cur=+b.dataset.k;render();$("layers").querySelector(`[data-k="${cur}"]`).focus();}});
+$("lang").addEventListener("click",()=>{lang=lang==="fr"?"en":"fr";try{localStorage.setItem("lang",lang)}catch(e){}render();});
+render();
+</script>
+</body>
+</html>
